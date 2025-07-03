@@ -3,12 +3,12 @@ import http from 'http';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { Server } from 'socket.io';
-import { connectDB } from './db/db.js';
+import { ConnectDB } from './db/db.js';
 import userRoutes from './routes/user.route.js';
 import messageRoutes from './routes/message.route.js';
 
 dotenv.config();
-connectDB();
+ConnectDB();
 
 const app = express();
 const server = http.createServer(app);
@@ -38,4 +38,4 @@ io.on("connection", (socket) => {
 });
 
 const PORT = process.env.PORT || 8000;
-server.listen(PORT, () => console.log(`🔥 Server running on http://localhost:${PORT}`));
+server.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
